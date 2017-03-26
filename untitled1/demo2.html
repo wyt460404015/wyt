@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-3.2.0.min.js"></script>
+    <title></title>
+</head>
+<script>
+    $(document).ready(function(){
+
+        var params = [];
+        var url = window.location.search;
+        var suburl = url.split('&');
+        for(var i=0;i<suburl.length;i++){
+            var localstart = suburl[i].indexOf('=');
+            var localend = suburl[i].length;
+            var param = suburl[i].substring(localstart+1, localend);
+            params.push(param);
+        }
+
+        $('.city').html(decodeURIComponent(params[0]));
+        $('.cond').html(decodeURIComponent(params[1]));
+
+        var result = [];
+        var s = 'aaabbbcccddd123334901';
+        for (var i=0; i< s.length; i++) {
+            var c = s.charAt(i);
+            if (result.indexOf(c) == -1) {
+                result.push(c);
+            }
+        }
+        var ss = result.join("");
+
+
+        //拼接
+        var a = '123', b = '456';
+        a+b;
+
+        //查找
+        var c = '1324567';
+        var i = c.indexOf('24');
+        if (i != -1) {
+            c.charAt(i);  //2
+        }
+
+        //替换
+        var ff = '123';
+        ff.replace("3", "4");
+
+        //删除
+        var fff = '456';
+        fff.replace('6', '');
+
+        //去除空格（两边的）
+        var cc = '   abc   def   ';
+        cc.trim(); // 'abc   def'
+
+        var j = 'abc def';
+        var idx = j.indexOf(' ');
+        if (idx != -1) {
+            j.replace(' ', '');
+        }
+
+        var z = '9';
+    });
+</script>
+<body>
+<div class="weather">
+    城市：<span class="city"></span>
+    天气：<span class="cond"></span>
+</div>
+</body>
+</html>
